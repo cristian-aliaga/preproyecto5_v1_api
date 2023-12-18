@@ -20,7 +20,6 @@ const getProduct = async (req, res) => {
     try {
         const resp = await Product.find()
                 .populate('category')
-                .populate('user')
         return res.json({
             message: 'Product',
             detail: resp
