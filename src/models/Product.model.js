@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const postSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     name: { type: String },
     description: { type: String },
     price: { type: String },
@@ -10,6 +10,6 @@ const postSchema = new mongoose.Schema({
     category: { type: mongoose.ObjectId, ref: 'Category' }
 })
 
-const Post = mongoose.model('Post', postSchema)
+const Post = mongoose.model('Product', productSchema)
 
 module.exports = Post

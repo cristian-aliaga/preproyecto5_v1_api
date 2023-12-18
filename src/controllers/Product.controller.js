@@ -1,8 +1,8 @@
-const Post = require('../models/Product.model')
+const Product = require('../models/Product.model')
 
 const createProduct = async (req, res) => {
     try {
-        const post = new Post(req.body)
+        const post = new Product(req.body)
         const resp = await post.save()
         return res.json({
             message: 'Producto Creado',
@@ -18,7 +18,7 @@ const createProduct = async (req, res) => {
 
 const getProduct = async (req, res) => {
     try {
-        const resp = await Post.find()
+        const resp = await Product.find()
                 .populate('category')
                 .populate('user')
         return res.json({
@@ -37,7 +37,7 @@ const updateProduct = async (req, res) => {
     try {
         const newData = req.body
 
-        const resp = await Post.findByIdAndUpdate(
+        const resp = await Product.findByIdAndUpdate(
             newData.postId,
             { $set: newData },
             { new: true })
@@ -56,7 +56,7 @@ const updateProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
     try {
-        const resp = await Post.findByIdAndDelete(req.body.postId)
+        const resp = await Product.findByIdAndDelete(req.body.postId)
 
         return res.json({
             message: 'Producto Eliminado',
