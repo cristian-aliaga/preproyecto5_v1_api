@@ -8,9 +8,9 @@ router = express.Router(),
 } = require('../controllers/Category.controller')
 const auth = require('../middlewares/auth')
 
-router.post('/', auth, createCategory)
-router.get('/', auth, getCategories)
-router.put('/', auth, updateCategory)
-router.delete('/', auth, deleteCategory)
+router.post('/', createCategory)
+router.get('/', getCategories)
+router.put('/', updateCategory)
+router.delete('/', deleteCategory)
 
 module.exports = router
