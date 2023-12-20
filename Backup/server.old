@@ -1,0 +1,15 @@
+const express = require("express");
+const cors = require("cors");
+const server = require("./server.old");
+
+//*- Importacion De Rutas :
+const Mercado_Pago = require("./routes/MercadoPago.router");
+
+const server = express();
+
+//*- Proxy - Midleware :
+server.use(express.json());
+server.use(cors());
+server.use("/Mercado_Pago", Mercado_Pago);
+
+module.exports = server;
